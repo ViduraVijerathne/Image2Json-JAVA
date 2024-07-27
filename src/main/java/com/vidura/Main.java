@@ -7,8 +7,8 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         try{
-            convertDummy();
-            File f = new File("image.json");
+            convertDummy(args[0]);
+            File f = new File(args[0]+".json");
             FileReader  r = new FileReader(f);
             BufferedReader reader = new BufferedReader(r);
             String d = "";
@@ -21,7 +21,7 @@ public class Main {
             ImageJson j  = ImageJson.fromJson(data);
             ImageExactor imageExactor = new ImageExactor(j);
             imageExactor.createImage();
-            imageExactor.save("outputimage.jpg");
+            imageExactor.save(args[0]+"-converted.jpg");
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -30,13 +30,13 @@ public class Main {
 
 
 
-    public  static  void convertDummy(){
+    public  static  void convertDummy(String path){
         try {
-            ImageExactor exactor = new ImageExactor("src/main/resources/img.png");
+            ImageExactor exactor = new ImageExactor(path+".jpg");
             ImageJson json = exactor.toJson();
             String x = json.toJson();
 
-            File f = new File("image.json");
+            File f = new File(path+".json");
             FileWriter writer = new FileWriter(f);
             writer.write(x);
             writer.flush();
