@@ -1,4 +1,4 @@
-package com.andromeda;
+package com.vidura;
 
 
 import com.google.gson.Gson;

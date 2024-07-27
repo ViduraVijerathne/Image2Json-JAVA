@@ -1,4 +1,4 @@
-package com.andromeda;
+package com.vidura;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
